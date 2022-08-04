@@ -1,4 +1,4 @@
-.header{
+.header {
   margin: 0 auto;
   padding: 0;
   padding-top: 45px;
@@ -7,14 +7,13 @@
   display: flex;
   align-self: end;
   justify-content: flex-start;
-  border: red solid;
   border-bottom: #545454 solid 1px;
 }
 
 @media screen and (max-width: 320px) {
-  .header{ 
-    max-width: 320px;
+  .header { 
     padding-top: 28px;
+    max-width: 320px;
   }
     
 }

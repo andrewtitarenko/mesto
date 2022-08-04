@@ -1,5 +1,6 @@
 .header__logo {
-  max-width: 142px;
+  max-width: 148px;
+  width: 148px;
   min-height: 33px;
   padding: 0;
   margin: 0;
@@ -7,7 +8,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  border: salmon solid;
 }
 
 @media screen and (max-width: 320px) {
