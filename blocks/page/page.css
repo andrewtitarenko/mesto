@@ -1,6 +1,9 @@
 .page {
   margin: 0 auto;
-  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
   min-width: 320px;
   width: 100%;
   box-sizing: border-box;
@@ -10,3 +13,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media screen and (max-width: 1024px) {
+.page {
+    width: 90vw;
+}
+}
+
+@media screen and (max-width: 425px) {
+  .page {
+      width: 88.12vw;
+  }
+  }
+
+@media screen and (max-width: 320px) {
+    .page {
+        width: 100%;
+    }
+    }
+
+  

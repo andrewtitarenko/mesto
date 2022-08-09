@@ -10,6 +10,8 @@
   align-items: flex-end;
 }
 
+
+
 @media screen and (max-width: 320px) {
     .header__logo {
       margin: 0 auto 31.6px 27px;

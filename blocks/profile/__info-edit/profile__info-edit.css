@@ -4,6 +4,12 @@
     align-items: center;
   }
 
+
+  @media screen and (max-width: 320px) {
+    .profile__info-edit {
+      justify-content: center;
+    }
+  }
   @media screen and (max-width: 282px) {
     .profile__info-edit {
       flex-direction: column;

@@ -24,14 +24,14 @@
 
 @media screen and (max-width: 425px) {
   .profile__button-edit-name {
-    width: 18px;
-    min-width: 18px;
-    height: 18px;
+    margin-bottom: 14px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .profile__button-edit-name {
-    margin-bottom: 14px;
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
   }
 }

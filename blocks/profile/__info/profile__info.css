@@ -2,20 +2,10 @@
   margin: 0 auto 0 30px;
   max-width: 340px;
 }
-@media screen and (max-width: 540px) {
+
+
+@media screen and (max-width: 425px) {
   .profile__info {
-    margin: 0 auto;
-    max-width: 320px;
-  }
-}
-@media screen and (max-width: 360px) {
-  .profile__info {
-    max-width: 265px;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 319px) {
-  .profile__info {
-    width: 94%;
+    margin: 0;
   }
 }

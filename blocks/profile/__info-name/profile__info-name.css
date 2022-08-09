@@ -8,21 +8,19 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 500px;
-  width: 100%;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .profile__info-name {
-    margin-bottom: 14px;
+    line-height: 1.22;
     font-size: 27px;
     text-align: center;
-
-
   }
 }
+
 @media screen and (max-width: 320px) {
   .profile__info-name {
-    margin: 0 10px 14px auto;
-    line-height: 1.22;
+    margin: 0 10px 14px 21px;
+    min-width: 190px;
   }
 }
