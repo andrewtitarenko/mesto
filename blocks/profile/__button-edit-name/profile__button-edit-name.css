@@ -1,6 +1,7 @@
 .profile__button-edit-name{
   margin: 0;
   padding: 0;
+  box-shadow: none;
   background-image: url(../../../images/Edit-Button.svg);
   background-color: black;
   background-position: center;
@@ -15,8 +16,8 @@
 }
 
 .profile__button-edit-name:hover {
-  opacity: 0.6;
-  transition: 0.8s;
+  opacity: .6;
+  transition: .8s;
 }
 .profile__button-edit-name:focus {
   outline: none;

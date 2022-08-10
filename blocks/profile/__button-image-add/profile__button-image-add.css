@@ -1,5 +1,6 @@
 .profile__button-image-add {
   margin: 0;
+  box-shadow: none;
   padding: 0;
   background-color: transparent;
   background-image: url(../../../images/plus-button.svg);
@@ -19,5 +20,10 @@
     min-width: 282px;
     max-height: 50px;
   }
-    
+
+}
+
+.profile__button-image-add:hover {
+  opacity: .8;
+  transition: .8s;
 }
