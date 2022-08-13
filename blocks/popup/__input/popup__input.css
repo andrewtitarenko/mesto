@@ -6,13 +6,6 @@
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .popup__input {
-    width: 100%;
-  }
-}
-
-
 @media screen and (max-width: 425px) {
   .popup__input {
     max-width: 238px;
@@ -20,9 +13,7 @@
 }
 
 @media screen and (max-width: 264px) {
-.popup__input {
-  width: 92%;
+  .popup__input {
+    width: 92%;
+  }
 }
-}
-
-

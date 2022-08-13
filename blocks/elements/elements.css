@@ -10,23 +10,23 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .elements {
-        padding-bottom: 52px;
-        grid-template-columns: repeat(auto-fit,minmax(calc(33% - 18px),1fr));
-        width: 90vw;
-    }
+  .elements {
+    padding-bottom: 52px;
+    grid-template-columns: repeat(auto-fit, minmax(calc(33% - 18px), 1fr));
+    width: 90vw;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .elements {
-      padding-bottom: 48px;
-      grid-template-columns: repeat(auto-fit,minmax(calc(49% - 18px),1fr));   
-     }
+  .elements {
+    padding-bottom: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(calc(49% - 18px), 1fr));
+  }
 }
 
 @media screen and (max-width: 475px) {
-    .elements {
-      width: 100%;
-      grid-template-columns: 100%
-     }
+  .elements {
+    width: 100%;
+    grid-template-columns: 100%
+  }
 }

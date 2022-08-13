@@ -1,5 +1,6 @@
-.profile__button-edit-name{
+.profile__button-edit-name {
   margin: 0;
+  margin-bottom: 7px;
   padding: 0;
   box-shadow: none;
   background-image: url(../../../images/Edit-Button.svg);
@@ -12,15 +13,12 @@
   box-sizing: border-box;
   cursor: pointer;
   outline: none;
-
+  box-shadow: none;
 }
 
 .profile__button-edit-name:hover {
   opacity: .6;
   transition: .8s;
-}
-.profile__button-edit-name:focus {
-  outline: none;
 }
 
 @media screen and (max-width: 425px) {
@@ -32,7 +30,6 @@
 @media screen and (max-width: 320px) {
   .profile__button-edit-name {
     width: 18px;
-    min-width: 18px;
     height: 18px;
   }
 }

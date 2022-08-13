@@ -7,11 +7,11 @@
   color: #545454;
   width: 100%;
   max-width: 318px;
-
 }
+
 @media screen and (max-width: 425px) {
-    .footer__copyright {
-      font-size: 14px;
-      max-width: 282px;
-    }
+  .footer__copyright {
+    font-size: 14px;
+    max-width: 282px;
+  }
 }

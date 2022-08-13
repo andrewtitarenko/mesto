@@ -15,21 +15,19 @@
 }
 
 @media screen and (max-width: 1024px) {
-.page {
+  .page {
     width: 90vw;
-}
+  }
 }
 
 @media screen and (max-width: 425px) {
   .page {
-      width: 88.12vw;
+    width: 88.12vw;
   }
-  }
+}
 
 @media screen and (max-width: 320px) {
-    .page {
-        width: 100%;
-    }
-    }
-
-  
+  .page {
+    width: 100%;
+  }
+}

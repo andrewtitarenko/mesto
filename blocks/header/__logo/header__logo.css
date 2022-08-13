@@ -1,10 +1,10 @@
 .header__logo {
-  max-width: 148px;
-  width: 148px;
-  min-height: 33px;
   padding: 0;
   margin: 0;
   margin-bottom: 41px;
+  max-width: 148px;
+  width: 148px;
+  min-height: 33px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -13,10 +13,10 @@
 
 
 @media screen and (max-width: 320px) {
-    .header__logo {
-      margin: 0 auto 31.6px 27px;
-      min-height: 24px;
-      max-width: 103.74px;
-    }
-    
+  .header__logo {
+    margin: 0 auto 32px 27px;
+    min-height: 24px;
+    max-width: 104px;
+  }
+
 }

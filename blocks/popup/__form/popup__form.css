@@ -4,11 +4,11 @@
   flex-direction: column;
   width: 100%;
   max-width: 358px;
-  
+
 }
 
 @media screen and (max-width: 540px) {
-  .popup__form{
+  .popup__form {
     width: 90%;
   }
 }

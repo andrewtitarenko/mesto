@@ -18,7 +18,7 @@
           <img class="profile__avatar" src="images/image.jpg" alt="аватарка">
           <div class="profile__info">
             <div class="profile__info-edit">
-              <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button class="profile__button-edit-name popup__open" type="button"></button>
             </div>
             <p class="profile__description">Исследователь океана</p>
@@ -80,16 +80,22 @@
           <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
 
-        <section class="popup popup__opened">
+        <section class="popup">
           <div class="popup__container">
-            <button class="pop__close-button" type="button"></button>
+            <button class="popup__close-button" type="button"></button>
             <div class="popup__content">
               <h2 class="popup__title">Редактировать профиль</h2>
-              <form class="popup__form" name="userInfo" novalidate>
-                <input type="text" class="popup__input popup__input-name" name="username" required minlength="2" maxlength="50" placeholder="Имя">
-                <input type="text" class="popup__input popup__input-description" name="description" required minlength="5" maxlength="100" placeholder="О себе">
+              <form class="popup__form" name="userInfo" type="submit">
+                <label> 
+                  <input type="text" id="userNameInput" name="userNameInput" 
+                  class="popup__input popup__input-name" placeholder="Имя">
+                </label>
+                <label>
+                  <input type="text" id="userJobInput" name="userJobInput" 
+                  class="popup__input popup__input-description" placeholder="О себе">
+                </label>
+                <button class="popup__save-button" type="submit">Сохранить</button>
               </form>
-              <button class="popup__save-button" type="button">Сохранить</button>
             </div>
           </div>
         </section>

@@ -8,13 +8,14 @@
   background-color: white;
   min-width: 22px;
   min-height: 19px;
+  box-shadow: none;
   cursor: pointer;
 }
 
 .element__like-button:hover {
   opacity: .5;
   transition: .8s;
-} 
+}
 
 
 .element__like-button:active {

@@ -14,9 +14,9 @@
     margin-bottom: 36px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .profile__description {
-    margin-bottom: 36px;
     font-size: 14px;
     line-height: 1.21;
     text-align: center;

@@ -1,17 +1,18 @@
 .profile__info-edit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
-  @media screen and (max-width: 320px) {
-    .profile__info-edit {
-      justify-content: center;
-    }
+@media screen and (max-width: 320px) {
+  .profile__info-edit {
+    justify-content: center;
   }
-  @media screen and (max-width: 282px) {
-    .profile__info-edit {
-      flex-direction: column;
-    }
+}
+
+@media screen and (max-width: 282px) {
+  .profile__info-edit {
+    flex-direction: column;
   }
+}
