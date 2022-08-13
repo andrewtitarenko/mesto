@@ -13,7 +13,6 @@
   box-sizing: border-box;
   cursor: pointer;
   outline: none;
-  box-shadow: none;
 }
 
 .profile__button-edit-name:hover {
