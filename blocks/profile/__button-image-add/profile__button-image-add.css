@@ -18,6 +18,7 @@
   .profile__button-image-add {
     min-width: 282px;
     max-height: 50px;
+    background-image: url(../../../images/plus-button-small.svg);
   }
 
 }

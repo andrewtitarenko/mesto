@@ -25,6 +25,12 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .popup__title {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 264px) {
   .popup__title {
     width: 92%;
