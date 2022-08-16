@@ -1,11 +1,5 @@
 .popup__input_type_description {
-  margin: 0;
   margin-bottom: 48px;
-  padding-bottom: 13px;
-  width: 100%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 425px) {
