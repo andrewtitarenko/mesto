@@ -1,22 +1,30 @@
-const popup = document.querySelector('.popup');
-const openButton = document.querySelector('.profile__button-edit-name');
-const closeButton = popup.querySelector('.popup__close-button');
-const saveButton = popup.querySelector('.popup__save-button');
-const formElement = document.querySelector('.popup__form'); 
-const nameInput = formElement.querySelector('.popup__input_type_name');
-const jobInput = formElement.querySelector('.popup__input_type_description');
+const listElement = document.querySelector('.elements');
+const templateElement = document.querySelector('.template').content;
+
+const profilePopup = document.querySelector('.popup__profile-info');
+const popupAddImage = document.querySelector('.popup__add-image');
+const popupImage = document.querySelector('.popup__image');
+
+const formElement = document.querySelector('.popup__form_profile'); 
+const formElementAddImage = document.querySelector('.popup__add-image_form'); 
+
+const profileEditButton = document.querySelector('.profile__button-edit-name');
+const openButtonImage = document.querySelector('.profile__button-image-add');
+const closeProfileButton = profilePopup.querySelector('.popup__profile_close-button');
+const closeButtonAddImage = popupAddImage.querySelector('.popup__add-image_close-button');
+const closeButtonImagePopup = popupImage.querySelector('.popup__image_close-button');
+
+const saveButton = profilePopup.querySelector('.popup__save-button');
+const likeButton = document.querySelector('.element__like-button');
+
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-const listElement = document.querySelector('.elements');
-const formElementAddImage = document.querySelector('.popup__add-image_form'); 
+
+const nameInput = formElement.querySelector('.popup__input_type_name');
+const jobInput = formElement.querySelector('.popup__input_type_description');
+
 const inputImageTitleElement = formElementAddImage.querySelector('.popup__input_type_image-title');
 const inputImageLinkElement = formElementAddImage.querySelector('.popup__input_type_image-link');
-const likeButton = document.querySelector('.element__like-button');
-const templateElement = document.querySelector('.template').content;
-const openButtonImage = document.querySelector('.profile__button-image-add');
-const popupAddImage = document.querySelector('.popup__add-image');
-const closeButtonAddImage = popupAddImage.querySelector('.popup__add-image_close-button');
-const formAddImage = document.querySelector('.popup__add-image_form');
 
 const initialCards = [
   {
@@ -45,26 +53,21 @@ const initialCards = [
   }
 ];
 
-
 //4 Спринт, редактирование профиля
-function openPopup() {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileDescription.textContent;
-    popup.classList.add('popup_is-opened');
+function changeProfileInfo() {
+  openPopup(profilePopup);
+
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileDescription.textContent;
 }
-function closePopup() {
-    popup.classList.remove('popup_is-opened');
-}
+
 function formSubmitHandler(evt) {
     evt.preventDefault(); 
     profileName.textContent = nameInput.value;
     profileDescription.textContent = jobInput.value;
-    closePopup();
-}
-openButton.addEventListener('click', openPopup);
-closeButton.addEventListener('click', closePopup);
-formElement.addEventListener('submit', formSubmitHandler); 
 
+    closePopup(profilePopup);
+}
 
 
 
@@ -92,8 +95,6 @@ function renderElement(title, src) {
  */
 return newElement;
 }
-
-
 function removeCard(e) {
     const itemToDelete = e.target.closest('.element');
     itemToDelete.remove();
@@ -102,7 +103,6 @@ function removeCard(e) {
 function likeCard(e) {
     e.target.classList.toggle('element__like-button_is-active');
 };
-
 
 function handleImageSubmit(e) {
     e.preventDefault();
@@ -114,16 +114,52 @@ function handleImageSubmit(e) {
     closePopupAddImage();
 };
 
+
+
+// Открытие попап картинки
+/* function openPopupImage(src,text) {
+
+}
+ */
+
+function openPopup(popup) {
+  popup.classList.add('popup_is-opened');
+}
 function openPopupAddImage() {
-    popupAddImage.classList.add('popup__add-image_is-opened');
+  openPopup(popupAddImage);
 };
 
+
+
+function closePopup(popup) {
+  popup.classList.remove('popup_is-opened');
+}
+function closeProfilePopup() {
+  closePopup(profilePopup);
+};
+function closePopupImage() {
+  closePopup(popupImage);
+};
 function closePopupAddImage() {
-    popupAddImage.classList.remove('popup__add-image_is-opened');
+  closePopup(popupAddImage);
 };
 
-
-formElementAddImage.addEventListener('submit', handleImageSubmit);
+profileEditButton.addEventListener('click', changeProfileInfo);
 openButtonImage.addEventListener('click', openPopupAddImage);
+closeProfileButton.addEventListener('click', closeProfilePopup);
 closeButtonAddImage.addEventListener('click', closePopupAddImage);
-formAddImage.addEventListener('submit', handleImageSubmit);
+closeButtonImagePopup.addEventListener('click', closePopupImage);
+formElement.addEventListener('submit', formSubmitHandler); 
+formElementAddImage.addEventListener('submit', handleImageSubmit);
+
+
+
+
+
+
+
+
+
+
+
+

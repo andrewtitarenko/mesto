@@ -39,11 +39,11 @@
         </section> 
       </main>
 
-      <section class="popup">
+      <section class="popup popup__profile-info">
         <div class="popup__container">
-          <button class="popup__close-button" type="button"></button>
+          <button class="popup__close-button popup__profile_close-button" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="userInfo">
+            <form class="popup__form popup__form_profile" name="userInfo">
               <label> 
                 <input type="text" id="userNameInput" name="userNameInput" 
                 class="popup__input popup__input_type_name" placeholder="Имя">
@@ -57,11 +57,11 @@
         </div>
       </section>
       
-      <section class="popup__add-image">
+      <section class="popup popup__add-image">
         <div class="popup__container">
-          <button class="popup__add-image_close-button" type="button"></button>
+          <button class="popup__close-button popup__add-image_close-button" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__add-image_form popup__form" name="userInfo">
+            <form class="popup__form popup__add-image_form" name="userInfo">
               <label> 
                 <input type="text" id="imageInput" name="imageInput" 
                 class="popup__input popup__input_type_image-title" placeholder="Название">
@@ -73,6 +73,15 @@
               <button class="popup__save-button" type="submit">Создать</button>
             </form>
         </div>
+      </section>
+
+      <section class="popup popup__image">
+        <figure class="popup__image_figure">
+          <button class="popup__close-button popup__image_close-button" type="button"></button>
+          <img class="popup__image_item">
+          <figcaption class="popup__image_figcaption"></figcaption>
+        </figure>
+
       </section>
 
       <template class="template">
