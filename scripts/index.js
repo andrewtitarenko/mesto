@@ -26,8 +26,8 @@ const jobInput = formElement.querySelector('.popup__input_type_description');
 const inputImageTitleElement = formElementAddImage.querySelector('.popup__input_type_image-title');
 const inputImageLinkElement = formElementAddImage.querySelector('.popup__input_type_image-link');
 
-const popupImageItem = document.querySelector('.popup_image-item'); 
-const PopupImageItemText = document.querySelector('.popup_image-figcaption');
+const popupImageItem = document.querySelector('.popup__image-item'); 
+const PopupImageItemText = document.querySelector('.popup__image-figcaption');
 
 const initialCards = [
   {
