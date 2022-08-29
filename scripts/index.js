@@ -3,16 +3,16 @@ const templateElement = document.querySelector('.template').content;
 
 const profilePopup = document.querySelector('.popup_profile-info');
 const popupAddImage = document.querySelector('.popup_add-image');
-const popupImage = document.querySelector('.popup__image');
+const popupImage = document.querySelector('.popup_image');
 
 const formElement = document.querySelector('.popup__form_profile'); 
-const formElementAddImage = document.querySelector('.popup_add-image_form'); 
+const formElementAddImage = document.querySelector('.popup__form_add-image'); 
 
 const profileEditButton = document.querySelector('.profile__button-edit-name');
 const openButtonImage = document.querySelector('.profile__button-image-add');
 const closeProfileButton = profilePopup.querySelector('.popup__close-button_profile-info');
 const closeButtonAddImage = popupAddImage.querySelector('.popup__close-button_add-image');
-const closeButtonImagePopup = popupImage.querySelector('.popup__image_close-button');
+const closeButtonImagePopup = popupImage.querySelector('.popup__close-button_image');
 
 const saveButton = profilePopup.querySelector('.popup__save-button');
 const likeButton = document.querySelector('.element__like-button');
@@ -26,8 +26,8 @@ const jobInput = formElement.querySelector('.popup__input_type_description');
 const inputImageTitleElement = formElementAddImage.querySelector('.popup__input_type_image-title');
 const inputImageLinkElement = formElementAddImage.querySelector('.popup__input_type_image-link');
 
-const popupImageItem = document.querySelector('.popup__image_item'); 
-const PopupImageItemText = document.querySelector('.popup__image_figcaption');
+const popupImageItem = document.querySelector('.popup_image_item'); 
+const PopupImageItemText = document.querySelector('.popup_image_figcaption');
 
 const initialCards = [
   {

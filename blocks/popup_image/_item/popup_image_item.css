@@ -1,16 +1,10 @@
-.popup__image_item {
+.popup_image_item {
   margin: 0;
   margin-bottom: 10px;
   padding: 0;
-/*   width: 433px;
-  height: 540px; */
   width: auto;
   height: auto;
   max-width: 75vw;
   max-height: 75vh;
   object-fit: cover;
 }
-
-/* @media screen and (max-width: 540px) {
-    
-} */
