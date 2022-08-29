@@ -10,7 +10,7 @@ const formElementAddImage = document.querySelector('.popup__add-image_form');
 
 const profileEditButton = document.querySelector('.profile__button-edit-name');
 const openButtonImage = document.querySelector('.profile__button-image-add');
-const closeProfileButton = profilePopup.querySelector('.popup__close-button_where_popup_profile-info');
+const closeProfileButton = profilePopup.querySelector('.popup__close-button_profile-info');
 const closeButtonAddImage = popupAddImage.querySelector('.popup__add-image_close-button');
 const closeButtonImagePopup = popupImage.querySelector('.popup__image_close-button');
 
