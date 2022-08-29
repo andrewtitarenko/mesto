@@ -26,6 +26,9 @@ const jobInput = formElement.querySelector('.popup__input_type_description');
 const inputImageTitleElement = formElementAddImage.querySelector('.popup__input_type_image-title');
 const inputImageLinkElement = formElementAddImage.querySelector('.popup__input_type_image-link');
 
+const popupImageItem = document.querySelector('.popup__image_item'); 
+const PopupImageItemText = document.querySelector('.popup__image_figcaption');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -55,10 +58,10 @@ const initialCards = [
 
 //4 Спринт, редактирование профиля
 function changeProfileInfo() {
-  openPopup(profilePopup);
+    openPopup(profilePopup);
 
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileDescription.textContent;
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileDescription.textContent;
 }
 
 function formSubmitHandler(evt) {
@@ -91,9 +94,9 @@ function renderElement(title, src) {
 
     newElement.querySelector('.element__delete-button').addEventListener('click', removeCard);
     newElement.querySelector('.element__like-button').addEventListener('click', likeCard);
-/* newElementImage.addEventListener('click', openImagePopup);
- */
-return newElement;
+    newElementImage.addEventListener('click', openPopupImageAction);
+
+    return newElement;
 }
 function removeCard(e) {
     const itemToDelete = e.target.closest('.element');
@@ -117,31 +120,37 @@ function handleImageSubmit(e) {
 
 
 // Открытие попап картинки
-/* function openPopupImage(src,text) {
+function openPopupImage(src,text) {
+    openPopup(popupImage);
+    popupImageItem.setAttribute('src', src); 
+    PopupImageItemText.textContent = text;
+};
+function openPopupImageAction(e) {
+    openPopupImage(e.target.getAttribute('src'), e.target.getAttribute('alt'));
+};
 
-}
- */
+
 
 function openPopup(popup) {
-  popup.classList.add('popup_is-opened');
-}
+    popup.classList.add('popup_is-opened');
+};
 function openPopupAddImage() {
-  openPopup(popupAddImage);
+    openPopup(popupAddImage);
 };
 
 
 
 function closePopup(popup) {
-  popup.classList.remove('popup_is-opened');
-}
+    popup.classList.remove('popup_is-opened');
+};
 function closeProfilePopup() {
-  closePopup(profilePopup);
+    closePopup(profilePopup);
 };
 function closePopupImage() {
-  closePopup(popupImage);
+    closePopup(popupImage);
 };
 function closePopupAddImage() {
-  closePopup(popupAddImage);
+    closePopup(popupAddImage);
 };
 
 profileEditButton.addEventListener('click', changeProfileInfo);
@@ -151,13 +160,6 @@ closeButtonAddImage.addEventListener('click', closePopupAddImage);
 closeButtonImagePopup.addEventListener('click', closePopupImage);
 formElement.addEventListener('submit', formSubmitHandler); 
 formElementAddImage.addEventListener('submit', handleImageSubmit);
-
-
-
-
-
-
-
 
 
 
