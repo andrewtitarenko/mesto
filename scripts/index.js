@@ -1,7 +1,7 @@
 const listElement = document.querySelector('.elements');
 const templateElement = document.querySelector('.template').content;
 
-const profilePopup = document.querySelector('.popup__profile-info');
+const profilePopup = document.querySelector('.popup_profile-info');
 const popupAddImage = document.querySelector('.popup__add-image');
 const popupImage = document.querySelector('.popup__image');
 
