@@ -2,16 +2,16 @@ const listElement = document.querySelector('.elements');
 const templateElement = document.querySelector('.template').content;
 
 const profilePopup = document.querySelector('.popup_profile-info');
-const popupAddImage = document.querySelector('.popup__add-image');
+const popupAddImage = document.querySelector('.popup_add-image');
 const popupImage = document.querySelector('.popup__image');
 
 const formElement = document.querySelector('.popup__form_profile'); 
-const formElementAddImage = document.querySelector('.popup__add-image_form'); 
+const formElementAddImage = document.querySelector('.popup_add-image_form'); 
 
 const profileEditButton = document.querySelector('.profile__button-edit-name');
 const openButtonImage = document.querySelector('.profile__button-image-add');
 const closeProfileButton = profilePopup.querySelector('.popup__close-button_profile-info');
-const closeButtonAddImage = popupAddImage.querySelector('.popup__add-image_close-button');
+const closeButtonAddImage = popupAddImage.querySelector('.popup__close-button_add-image');
 const closeButtonImagePopup = popupImage.querySelector('.popup__image_close-button');
 
 const saveButton = profilePopup.querySelector('.popup__save-button');
