@@ -14,5 +14,5 @@
 
 .element:hover {
   transition: .4s;
-  box-shadow: 0px -5px 10px 0px rgba(255, 254, 254, 0.498)
+  box-shadow: 0px -5px 10px 0px rgba(255, 254, 254, 0.498);
 }
