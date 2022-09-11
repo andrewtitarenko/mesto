@@ -19,16 +19,16 @@ function checkInputValidity(inputItem, errorElement, config) {
 }
 
 function setEventListeners(formElement, config) {
-    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+    const inputsList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const submitButton = formElement.querySelector(config.submitButtonSelector);
 
-    toggleSubmitButtonState(inputList, submitButton, config.inactiveButtonClass);
+    toggleSubmitButtonState(inputsList, submitButton, config.inactiveButtonClass);
 
-    inputList.forEach((inputItem) => {
+    inputsList.forEach((inputItem) => {
         const errorElement = formElement.querySelector(`.${inputItem.id}-error`);
         inputItem.addEventListener('input', () => {
             checkInputValidity(inputItem, errorElement, config);
-            toggleSubmitButtonState(inputList, submitButton,config.inactiveButtonClass);
+            toggleSubmitButtonState(inputsList, submitButton,config.inactiveButtonClass);
         })
     })
 };
@@ -44,8 +44,8 @@ function enableValidation (config) {
     })
 };
 
-function toggleSubmitButtonState(inputList, submitButton, inactiveButtonClass) {
-    if (hasInvalidInput(inputList)) {
+function toggleSubmitButtonState(inputsList, submitButton, inactiveButtonClass) {
+    if (hasInvalidInput(inputsList)) {
         submitButton.setAttribute('disabled', 'disabled');
         submitButton.classList.add(inactiveButtonClass);
     } else {
@@ -54,8 +54,8 @@ function toggleSubmitButtonState(inputList, submitButton, inactiveButtonClass) {
     }
 }
 
-function hasInvalidInput(inputList) {
-    return inputList.some((inputItem) => {
+function hasInvalidInput(inputsList) {
+    return inputsList.some((inputItem) => {
         return !inputItem.validity.valid
     });
 };
