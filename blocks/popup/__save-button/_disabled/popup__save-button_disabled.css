@@ -1,4 +1,5 @@
 .popup__save-button_disabled {
+  margin-top: 15px;
   border: 1px solid #000000;
   border-radius: 2px;
   background-color: transparent;
@@ -7,6 +8,3 @@
   cursor: auto;
 }
 
-.popup__save-button_disabled:hover {
-  opacity: 0.2;
-}
