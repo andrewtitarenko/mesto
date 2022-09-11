@@ -10,6 +10,7 @@ const formAddImage = document.querySelector('.popup__form_add-image');
 
 const profileEditButton = document.querySelector('.profile__button-edit-name');
 const openAddImagePopupButton = document.querySelector('.profile__button-image-add');
+const submitAddImagePopupButton = popupAddImage.querySelector('.popup__save-button');
 const closeProfileButton = profilePopup.querySelector('.popup__close-button_profile-info');
 const closeButtonAddImage = popupAddImage.querySelector('.popup__close-button_add-image');
 const closeButtonImagePopup = popupImage.querySelector('.popup__close-button_image');
@@ -26,18 +27,23 @@ const inputImageLinkElement = formAddImage.querySelector('.popup__input_type_ima
 const popupImageItem = document.querySelector('.popup__image-item'); 
 const popupImageItemText = document.querySelector('.popup__image-figcaption');
 
+const overlay = document.querySelector('.overlay');
+
 
 
 //4 Спринт, редактирование профиля
 function openProfileInfoForm() {
     openPopup(profilePopup);
+    firstProfileInfo();
+};
 
+function firstProfileInfo(){
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
-}
+};
 
-function popupProfileInfoSubmitHandler(evt) {
-    evt.preventDefault(); 
+function popupProfileInfoSubmitHandler(e) {
+    e.preventDefault(); 
     profileName.textContent = nameInput.value;
     profileDescription.textContent = jobInput.value;
 
@@ -86,10 +92,15 @@ function handleImageSubmit(e) {
       name: inputImageTitleElement.value,
       link: inputImageLinkElement.value
 })
+    e.target.reset();
+    buttonDisable(submitAddImagePopupButton);
     closePopupAddImage();
 };
 
-
+function buttonDisable(submitButton) {
+    submitButton.classList.add('popup__save-button_disabled');
+    submitButton.setAttribute('disabled', 'disabled');
+}
 
 // Открытие попап картинки
 function openPopupImage(src, text) {
@@ -107,15 +118,16 @@ function openPopupImageAction(e) {
 
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
+    document.addEventListener('keydown', popupsToCloseWithEscape);
 };
 function openPopupAddImage() {
     openPopup(popupAddImage);
 };
 
 
-
 function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
+    document.removeEventListener('keydown', popupsToCloseWithEscape);
 };
 function closeProfilePopup() {
     closePopup(profilePopup);
@@ -134,3 +146,32 @@ closeButtonAddImage.addEventListener('click', closePopupAddImage);
 closeButtonImagePopup.addEventListener('click', closePopupImage);
 formProfileInfo.addEventListener('submit', popupProfileInfoSubmitHandler); 
 formAddImage.addEventListener('submit', handleImageSubmit);
+
+
+
+//Спринт 6
+
+function closePopupsWithOverlay (popup) {
+    popup.addEventListener('click', (e) => {
+      if (popup.classList.contains('popup_is-opened') && e.target === e.currentTarget) {
+          closePopup(popup);
+      }
+    })
+  };
+
+function popupsToCloseWithOverlay (){
+  const popups = Array.from(document.querySelectorAll('.popup'));
+
+  popups.forEach(closePopupsWithOverlay);
+}
+
+function popupsToCloseWithEscape (e){
+  if (e.key === 'Escape') {
+    const popupToClose = document.querySelector('.popup_is-opened');
+    closePopup(popupToClose);
+  }
+};
+
+
+popupsToCloseWithOverlay();
+firstProfileInfo();
