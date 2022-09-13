@@ -46,8 +46,7 @@ function enableValidation (config) {
 
 function toggleSubmitButtonState(inputsList, submitButton, inactiveButtonClass) {
     if (hasInvalidInput(inputsList)) {
-        submitButton.setAttribute('disabled', 'disabled');
-        submitButton.classList.add(inactiveButtonClass);
+        addSaveButtonDisableState(submitButton);
     } else {
         submitButton.classList.remove(inactiveButtonClass);
         submitButton.removeAttribute('disabled', 'disabled');

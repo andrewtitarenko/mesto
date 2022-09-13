@@ -1,6 +1,6 @@
 @import url(../vendor/normalize.css);
 
-@import url(../fonts/inter.css);
+@import url(/vendor/fonts/inter.css);
 
 @import url(../blocks/page/page.css);
 
@@ -48,11 +48,13 @@
 @import url(../blocks/popup/__input/-error/popup__input-error.css);
 @import url(../blocks/popup/__save-button/_disabled/popup__save-button_disabled.css);
 
+@import url(../blocks/popup_type_image/popup_type_image.css);
+@import url(../blocks/popup_type_image/-figcaption/popup_type_image-figcaption.css);
+@import url(../blocks/popup_type_image/-figure/popup_type_image-figure.css);
+@import url(../blocks/popup_type_image/-item/popup_type_image-item.css);
 
-@import url(../blocks/popup_image/popup_image.css);
-@import url(../blocks/popup_image/-figcaption/popup__image-figcaption.css);
-@import url(../blocks/popup_image/-figure/popup__image-figure.css);
-@import url(../blocks/popup_image/-item/popup__image-item.css);
+@import url(../blocks/popup_type_image/-figcaption/popup_type_image-figcaption.css);
+
 
 @import url(../blocks/popup/__input/_type/popup__input_type_error.css);
 @import url(../blocks/popup/__input/-error/popup__input-error.css);
