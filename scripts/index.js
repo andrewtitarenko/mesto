@@ -24,8 +24,8 @@ const jobInput = formProfileInfo.querySelector('.popup__input_type_description')
 const inputImageTitleElement = formAddImage.querySelector('.popup__input_type_image-title');
 const inputImageLinkElement = formAddImage.querySelector('.popup__input_type_image-link');
 
-const popupImageItem = document.querySelector('.popup_type_image-item'); 
-const popupImageItemText = document.querySelector('.popup_type_image-figcaption');
+const popupImageItem = document.querySelector('.popup__image-item'); 
+const popupImageItemText = document.querySelector('.popup__image-figcaption');
 
 const overlay = document.querySelector('.overlay');
 
