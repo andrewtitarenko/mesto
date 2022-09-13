@@ -50,7 +50,7 @@
 
 @import url(../blocks/popup_type_image/popup_type_image.css);
 @import url(../blocks/popup_type_image/-figcaption/popup_type_image-figcaption.css);
-@import url(../blocks/popup_type_image/-figure/popup_type_image-figure.css);
+@import url(../blocks/popup_type_image/_figure/popup_type_image_figure.css);
 @import url(../blocks/popup_type_image/-item/popup_type_image-item.css);
 
 @import url(../blocks/popup_type_image/-figcaption/popup_type_image-figcaption.css);
