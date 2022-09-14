@@ -93,13 +93,10 @@ function handleImageSubmit(e) {
       link: inputImageLinkElement.value
 })
     e.target.reset();
-    disableButton(buttonSubmitAddImagePopup);
+    addSaveButtonDisableState(buttonSubmitAddImagePopup);
     closePopupAddImage();
 };
 
-function disableButton(submitButton) {
-    addSaveButtonDisableState(submitButton);
-}
 
 function addSaveButtonDisableState(submitButton) {
     submitButton.classList.add('popup__save-button_disabled');
@@ -107,10 +104,12 @@ function addSaveButtonDisableState(submitButton) {
 };
 
 // Открытие попап картинки
-function openPopupImage(src, text) {
+function openPopupImage(src, figcaption) {
     openPopup(popupImage);
-    popupImageItem.setAttribute('src', src); 
-    popupImageItemText.textContent = text;
+    popupImageItem.setAttribute('src', src);
+    popupImageItem.setAttribute('alt', figcaption);
+
+    popupImageItemText.textContent = figcaption;
 
 };
 function openPopupImageAction(e) {
