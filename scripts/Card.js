@@ -1,6 +1,6 @@
-import {openPopup, popupImage, popupCaption} from './openCloseFunctions';
+import {openPopup, popupImageItem, popupCaption, popupImage} from './openCloseFunctions'
 
-class Card {
+export class Card {
     constructor (title, image, template) {
         this._title = title;
         this._image = image;
@@ -44,10 +44,10 @@ class Card {
     }
 
     _openBigImage() {
-        openPopup(document.querySelector('.popup_type_image'));
-        popupImage.setAttribute('src', this._image);
-        popupImage.setAttribute('alt', this._title);
+        popupImageItem.setAttribute('src', this._image);
+        popupImageItem.setAttribute('alt', this._title);
         popupCaption.setAttribute.textContent = this._title;
+        openPopup(popupImage)
     }
 
 }

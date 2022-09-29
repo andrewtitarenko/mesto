@@ -1,7 +1,7 @@
 import {Card} from './Card'
-import {initialCards} from './defaultCards';
-import {FormValidator} from './FormValidator';
-import {openPopup, closePopup} from './openCloseFunctions'; 
+import {initialCards} from './defaultCards'
+import {FormValidator} from './FormValidator'
+import {openPopup, closePopup} from './openCloseFunctions'
 
 const listElement = document.querySelector('.elements');//
 const templateElement = document.querySelector('.template').content;

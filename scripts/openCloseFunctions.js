@@ -16,3 +16,4 @@ export function closePopup(popup) {
 
 export const popupImageItem = document.querySelector('.popup__image-item'); 
 export const popupImageItemText = document.querySelector('.popup__image-figcaption');
+export const popupImage = document.querySelector('.popup_type_image');
