@@ -3,52 +3,53 @@ import {initialCards} from './defaultCards.js'
 import {FormValidator} from './FormValidator.js'
 import {openPopup, closePopup} from './openCloseFunctions.js'
 
-const profileEditButton = document.querySelector('.profile__button-edit-name');
-const profilePopup = document.querySelector('.popup_type_profile-info');
+const buttonOpenPopupProfile = document.querySelector('.profile__button-edit-name');
+const popupProfileInfo = document.querySelector('.popup_type_profile-info');
 const formProfileInfo = document.querySelector('.popup__form_profile');
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = document.querySelector('.popup__input_type_description');
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
-const buttonCloseProfile = document.querySelector('.popup__close-button_profile-info');
-const listElement = document.querySelector('.elements');
-const buttonOpenAddImagePopup = document.querySelector('.profile__button-image-add');
-const popupAddImage = document.querySelector('.popup_type_add-image');
-const buttonCloseAddImage = document.querySelector('.popup__close-button_add-image');
-const inputImageTitleElement = document.querySelector('.popup__input_type_image-title');
-const inputImageLinkElement = document.querySelector('.popup__input_type_image-link');
-const popupImage = document.querySelector('.popup_type_image');
-const buttonCloseImagePopup = document.querySelector('.popup__close-button_image');
-const buttonSubmitAddImagePopup = popupAddImage.querySelector('.popup__save-button');
+const profileNameInput = document.querySelector('.popup__input_type_name');
+const profileJobInput = document.querySelector('.popup__input_type_description');
+const profileNameField = document.querySelector('.profile__name');
+const profileJobField = document.querySelector('.profile__description');
+const buttonClosePopupProfileInfo = document.querySelector('.popup__close-button_profile-info');
+const cards = document.querySelector('.elements');
+const buttonAddCard = document.querySelector('.profile__button-image-add');
+const popupAddCard = document.querySelector('.popup_type_add-image');
+const buttonClosePopupAddCard = document.querySelector('.popup__close-button_add-image');
+const formAddCard = document.querySelector('.popup_type_add-image');
+const cardTitle = document.querySelector('.popup__input_type_image-title');
+const cardImage = document.querySelector('.popup__input_type_image-link');
+const popupThemeImage = document.querySelector('.popup_type_image');
+const buttonClosePopupImage = document.querySelector('.popup__close-button_image');
+const buttonSubmitAddCard = popupAddCard.querySelector('.popup__save-button');
 const formList = Array.from(document.querySelectorAll('.popup__form'))
 
 function openPopupProfileInfo() {
-    openPopup(profilePopup);
+    openPopup(popupProfileInfo);
     initProfileInfo();
 }
 
 function changeProfileInfo(evt) {
     evt.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileDescription.textContent = jobInput.value;
+    profileNameField.textContent = profileNameInput.value;
+    profileJobField.textContent = profileJobInput.value;
 
-    closePopup(profilePopup);
+    closePopup(popupProfileInfo);
 }
 
 function closePopupProfileInfo() {
-    closePopup(profilePopup);
+    closePopup(popupProfileInfo);
 }
 
 function openPopupAddCard() {
-    openPopup(popupAddImage);
+    openPopup(popupAddCard);
 }
 
-function createCard(name, link, template) {
-    return new Card(name, link, template).makeCard()
+function createCard(name, link, templateSelector) {
+    return new Card(name, link, templateSelector).generateCard()
 }
 
 function addCard(card) {
-    listElement.prepend(createCard(card.name, card.link, '#template'));
+    cards.prepend(createCard(card.name, card.link, '#template'));
 }
 
 initialCards.forEach((card) => {
@@ -61,26 +62,26 @@ initialCards.forEach((card) => {
 function submitAddCard(evt) {
     evt.preventDefault();
     addCard({
-        link: inputImageLinkElement.value,
-        name: inputImageTitleElement.value
+        link: cardImage.value,
+        name: cardTitle.value
     });
     evt.target.reset();
     new FormValidator({
-        inputSelector: '.popup__item',
+        inputSelector: '.popup__input',
         submitButtonSelector: '.popup__save-button',
         inactiveButtonClass: 'popup__save-button_disabled',
         inputErrorClass: 'popup__input_type_error',
         errorClass: 'popup__input-error_visible'
-    }, null).disableButton(buttonSubmitAddImagePopup);
+    }, null).disableButton(buttonSubmitAddCard);
     closePopupAddCard();
 }
 
 function closePopupAddCard() {
-    closePopup(popupAddImage);
+    closePopup(popupAddCard);
 }
 
 function closePopupImage() {
-    closePopup(popupImage);
+    closePopup(popupThemeImage);
 }
 
 function initPopupsClosers() {
@@ -91,21 +92,21 @@ function initPopupsClosers() {
 
 function addPopupCloserByBackground(popup) {
     popup.addEventListener('click', (evt) => {
-        if (popup.classList.contains('popup_opened') && evt.target === evt.currentTarget) {
+        if (popup.classList.contains('popup_is-opened') && evt.target === evt.currentTarget) {
             closePopup(popup);
         }
     })
 }
 
 function initProfileInfo() {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileDescription.textContent;
+    profileNameInput.value = profileNameField.textContent;
+    profileJobInput.value = profileJobField.textContent;
 }
 
 function initValidation() {
     formList.forEach((form) => {
         new FormValidator({
-            inputSelector: '.popup__item',
+            inputSelector: '.popup__input',
             submitButtonSelector: '.popup__save-button',
             inactiveButtonClass: 'popup__save-button_disabled',
             inputErrorClass: 'popup__input_type_error',
@@ -117,10 +118,10 @@ function initValidation() {
 initProfileInfo();
 initValidation();
 initPopupsClosers();
-profileEditButton.addEventListener('click', openPopupProfileInfo);
-buttonOpenAddImagePopup.addEventListener('click', openPopupAddCard);
-buttonCloseProfile.addEventListener('click', closePopupProfileInfo);
-buttonCloseAddImage.addEventListener('click', closePopupAddCard);
-buttonCloseImagePopup.addEventListener('click', closePopupImage);
+buttonOpenPopupProfile.addEventListener('click', openPopupProfileInfo);
+buttonAddCard.addEventListener('click', openPopupAddCard);
+buttonClosePopupProfileInfo.addEventListener('click', closePopupProfileInfo);
+buttonClosePopupAddCard.addEventListener('click', closePopupAddCard);
+buttonClosePopupImage.addEventListener('click', closePopupImage);
 formProfileInfo.addEventListener('submit', changeProfileInfo);
-popupAddImage.addEventListener('submit', submitAddCard);
+formAddCard.addEventListener('submit', submitAddCard);

@@ -8,16 +8,16 @@ export class FormValidator {
         this._formElement = formElement;
     }
 
-    _showInputError(inputElement, errorInputClass, error, errorSpanClass) {
+    _showInputError(inputElement, errorInputClass, errorSpan, errorSpanClass) {
         inputElement.classList.add(errorInputClass);
-        error.textContent = inputElement.validationMessage;
-        error.classList.add(errorSpanClass);
+        errorSpan.textContent = inputElement.validationMessage;
+        errorSpan.classList.add(errorSpanClass);
     }
 
-    _hideInputError(inputElement, errorInputClass, error, errorSpanClass) {
+    _hideInputError(inputElement, errorInputClass, errorSpan, errorSpanClass) {
         inputElement.classList.remove(errorInputClass);
-        error.classList.remove(errorSpanClass);
-        error.textContent = '';
+        errorSpan.classList.remove(errorSpanClass);
+        errorSpan.textContent = '';
     }
 
     disableButton(submitButton) {
@@ -26,7 +26,7 @@ export class FormValidator {
     }
 
     _toggleSubmitButton(inputList, submitButton, inactiveButtonClass) {
-        if (this._hasInvalidInput(inputList)) {
+        if (this._isInputListInvalid(inputList)) {
             this.disableButton(submitButton);
         } else {
             submitButton.classList.remove(inactiveButtonClass);
@@ -34,13 +34,13 @@ export class FormValidator {
         }
     }
 
-    _hasInvalidInput(inputList) {
+    _isInputListInvalid(inputList) {
         return inputList.some((inputItem) => {
             return !inputItem.validity.valid
         })
     }
 
-    _checkInputValidity(inputItem, errorElement) {
+    _setInputItemVisibility(inputItem, errorElement) {
         if (!inputItem.validity.valid) {
             this._showInputError(inputItem, this._inputErrorClass, errorElement, this._errorClass);
         } else {
@@ -57,7 +57,7 @@ export class FormValidator {
         inputList.forEach((inputItem) => {
             const errorElement = this._formElement.querySelector(`.${inputItem.id}-error`);
             inputItem.addEventListener('input', () => {
-                this._checkInputValidity(inputItem, errorElement);
+                this._setInputItemVisibility(inputItem, errorElement);
                 this._toggleSubmitButton(inputList, submitButton, this._inactiveButtonClass);
             })
         })
