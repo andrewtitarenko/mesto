@@ -23,9 +23,8 @@ const inputImageTitle = document.querySelector('.popup__input_type_image-title')
 const inputImageLink = document.querySelector('.popup__input_type_image-link');
 
 const buttonEditProfile = document.querySelector('.profile__button-edit-name');
-const buttonCloseProfile = document.querySelector('.popup__close-button_profile-info');
+const closeButtons = document.querySelectorAll('.popup__close-button');
 const buttonCloseAddImage = document.querySelector('.popup__close-button_add-image');
-const buttonCloseImagePopup = document.querySelector('.popup__close-button_image');
 const buttonSubmitAddImagePopup = popupAddImage.querySelector('.popup__save-button');
 const buttonOpenAddImagePopup = document.querySelector('.profile__button-image-add');
 
@@ -86,13 +85,6 @@ function closePopupAddCard() {
     closePopup(popupAddImage);
 };
 
-function closePopupImage() {
-    closePopup(popupImage);
-};
-
-function closePopupProfileInfo() {
-    closePopup(profilePopup);
-};
 
 function closeWithEscape(e) {
     if (e.key === 'Escape') {
@@ -120,8 +112,6 @@ function addCard(card) {
 
 initialCards.forEach(addCard);
 
-
-
 function submitAddCard(e) {
     e.preventDefault();
     addCard({
@@ -132,8 +122,6 @@ function submitAddCard(e) {
     validationAddImageForm.disableButton(buttonSubmitAddImagePopup);
     closePopupAddCard();
 };
-
-
 
 function selectPopupToClose() {
     const popupsList = Array.from(document.querySelectorAll('.popup'));
@@ -155,16 +143,21 @@ function initProfileInfo() {
 };
 
 
-
 initProfileInfo();
 handleValidation();
 selectPopupToClose();
 
 buttonEditProfile.addEventListener('click', openPopupProfileInfo);
-buttonCloseProfile.addEventListener('click', closePopupProfileInfo);
 formProfileInfo.addEventListener('submit', changeProfileInfo);
-
+closeButtons.forEach((button) => {
+const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+  });
 buttonCloseAddImage.addEventListener('click', closePopupAddCard);
 buttonOpenAddImagePopup.addEventListener('click', openPopupAddCard);
-buttonCloseImagePopup.addEventListener('click', closePopupImage);
 popupAddImage.addEventListener('submit', submitAddCard);
+
+
+
+
+
