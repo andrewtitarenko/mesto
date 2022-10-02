@@ -6,9 +6,13 @@ export const popupImageItem = document.querySelector('.popup__image-item');
 export const popupImageItemText = document.querySelector('.popup__image-figcaption');
 export const popupImage = document.querySelector('.popup_type_image');
 
+export const templateImage = document.querySelector('.element__image')
+
 const elementList = document.querySelector('.elements');
+
 const formList = Array.from(document.querySelectorAll('.popup__form'));
 const formProfileInfo = document.querySelector('.popup__form_profile');
+const formAddImage = document.querySelector('.popup__form_add-image');
 
 const profilePopup = document.querySelector('.popup_type_profile-info');
 const popupAddImage = document.querySelector('.popup_type_add-image');
@@ -28,10 +32,41 @@ const buttonOpenAddImagePopup = document.querySelector('.profile__button-image-a
 const profileNameField = document.querySelector('.profile__name');
 const profileJobField = document.querySelector('.profile__description');
 
+const validationProfileInfoForm = new FormValidator({
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_visible'
+}, formProfileInfo);
+const validationAddImageForm = new FormValidator({
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_visible'
+}, formAddImage);
+
+function handleValidation(){
+    validationAddImageForm.enableValidation();
+    validationProfileInfoForm.enableValidation();
+}
+
 export function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     document.addEventListener('keydown', closeWithEscape);
+    //resetValidation(); //- тоже не получилось
 };
+
+//Не получилось сделать функцию, но консоль пишет 
+//Uncaught TypeError: this._handleCardClick is not a function at HTMLDivElement.<anonymous>
+export function handleCardClick(name, link){
+    templateImage.setAttribute('src', name);
+    templateImage.setAttribute('alt', link);
+    templateImage.textContent = name;
+    openPopup()
+}
+
 
 function openPopupProfileInfo() {
     openPopup(profilePopup);
@@ -44,7 +79,7 @@ function openPopupAddCard() {
 
 function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
-    document.removeEventListener('keydown', closeByEscape);
+    document.removeEventListener('keydown', closeWithEscape);
 };
 
 function closePopupAddCard() {
@@ -82,12 +117,10 @@ function addCard(card) {
     elementList.prepend(generateCard(card.name, card.link, '.template'));
 };
 
-initialCards.forEach((card) => {
-    addCard({
-        name: card.name,
-        link: card.link
-    })
-});
+
+initialCards.forEach(addCard);
+
+
 
 function submitAddCard(e) {
     e.preventDefault();
@@ -96,13 +129,7 @@ function submitAddCard(e) {
         name: inputImageTitle.value
     });
     e.target.reset();
-    new FormValidator({
-        inputSelector: '.popup__input',
-        submitButtonSelector: '.popup__save-button',
-        inactiveButtonClass: 'popup__save-button_disabled',
-        inputErrorClass: 'popup__input_type_error',
-        errorClass: 'popup__input-error_visible'
-    }, null).disableButton(buttonSubmitAddImagePopup);
+    validationAddImageForm.disableButton(buttonSubmitAddImagePopup);
     closePopupAddCard();
 };
 
@@ -113,6 +140,7 @@ function selectPopupToClose() {
     popupsList.forEach(closePopupWithLayout);
 };
 
+// через событие mousedown попап не хочет закрываться
 function closePopupWithLayout(popup) {
     popup.addEventListener('click', (e) => {
         if (popup.classList.contains('popup_is-opened') && e.target === e.currentTarget) {
@@ -126,20 +154,10 @@ function initProfileInfo() {
     inputJobProfile.value = profileJobField.textContent;
 };
 
-function validation() {
-    formList.forEach((form) => {
-        new FormValidator({
-            inputSelector: '.popup__input',
-            submitButtonSelector: '.popup__save-button',
-            inactiveButtonClass: 'popup__save-button_disabled',
-            inputErrorClass: 'popup__input_type_error',
-            errorClass: 'popup__input-error_visible'
-        }, form).enableValidation()
-    })
-};
+
 
 initProfileInfo();
-validation();
+handleValidation();
 selectPopupToClose();
 
 buttonEditProfile.addEventListener('click', openPopupProfileInfo);
