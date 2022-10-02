@@ -31,20 +31,16 @@ const buttonOpenAddImagePopup = document.querySelector('.profile__button-image-a
 const profileNameField = document.querySelector('.profile__name');
 const profileJobField = document.querySelector('.profile__description');
 
-const validationProfileInfoForm = new FormValidator({
+const config = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save-button',
     inactiveButtonClass: 'popup__save-button_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input-error_visible'
-}, formProfileInfo);
-const validationAddImageForm = new FormValidator({
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__save-button',
-    inactiveButtonClass: 'popup__save-button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_visible'
-}, formAddImage);
+};
+
+const validationProfileInfoForm = new FormValidator(config, formProfileInfo);
+const validationAddImageForm = new FormValidator(config, formAddImage);
 
 function handleValidation(){
     validationAddImageForm.enableValidation();
@@ -54,11 +50,10 @@ function handleValidation(){
 export function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     document.addEventListener('keydown', closeWithEscape);
-    //resetValidation(); //- тоже не получилось
+    //resetValidation(); 
 };
 
-//Не получилось сделать функцию, но консоль пишет 
-//Uncaught TypeError: this._handleCardClick is not a function at HTMLDivElement.<anonymous>
+
 export function handleCardClick(name, link){
     templateImage.setAttribute('src', name);
     templateImage.setAttribute('alt', link);
@@ -102,7 +97,7 @@ function changeProfileInfo(e) {
 
 
 function generateCard(title, image, template) {
-    return new Card(title, image, template).makeCard()
+    return new Card(title, image, template, handleCardClick).makeCard()
 };
 
 function addCard(card) {
@@ -119,7 +114,6 @@ function submitAddCard(e) {
         name: inputImageTitle.value
     });
     e.target.reset();
-    validationAddImageForm.disableButton(buttonSubmitAddImagePopup);
     closePopupAddCard();
 };
 
@@ -150,12 +144,12 @@ selectPopupToClose();
 buttonEditProfile.addEventListener('click', openPopupProfileInfo);
 formProfileInfo.addEventListener('submit', changeProfileInfo);
 closeButtons.forEach((button) => {
+buttonOpenAddImagePopup.addEventListener('click', openPopupAddCard);
+popupAddImage.addEventListener('submit', submitAddCard);
+
 const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popup));
   });
-buttonCloseAddImage.addEventListener('click', closePopupAddCard);
-buttonOpenAddImagePopup.addEventListener('click', openPopupAddCard);
-popupAddImage.addEventListener('submit', submitAddCard);
 
 
 

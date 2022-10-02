@@ -5,7 +5,7 @@ export class Card {
         this._title = title;
         this._image = image;
         this._template = template;
-        //this._handleCardClick = handleCardClick();
+        this._handleCardClick = handleCardClick;
 
     }
 
@@ -41,27 +41,24 @@ export class Card {
             this._deleteCard();
         })
 
-         this._elementImage.addEventListener('click', () => {
+        this._elementImage.addEventListener('click', () => {
             this._openBigImage();
-        }) 
-        /*         this._element.addEventListener('click', () => {
-            this._handleCardClick(this._title, this._image);
-        }) */
-    }
+        })  
+    };
 
     _likeCard() {
         this._elementLikeButton.classList.toggle('element__like-button_is-active');
-    }
+    };
 
     _deleteCard() {
         const itemElement = this._element
         itemElement.remove();
-     }
+     };
 
     _openBigImage() {
         popupImageItem.setAttribute('src', this._image);
         popupImageItem.setAttribute('alt', this._title)
         popupImageItemText.textContent = this._title;
         openPopup(popupImage);
-    }
+    };
 } 
