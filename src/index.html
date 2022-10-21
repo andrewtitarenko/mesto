@@ -6,17 +6,15 @@
         <meta name="description" content="Проект: Место, 4 спринт">
         <meta name="keywords" content="html,css,javascript">
         <meta name="author" content="Titarenko Andrey">
-        <link rel="stylesheet" href="pages/index.css">
-
         <title>Место</title>
     </head>
     <body class="page">
       <header class="header">
-        <img class="header__logo" src="images/logo.svg" alt="логотип место">
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип место">
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="images/icon2.png" alt="аватарка">
+          <img class="profile__avatar" src="<%=require('./images/icon2.png')%>" alt="аватарка">
           <div class="profile__info">
             <div class="profile__info-edit">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -35,14 +33,14 @@
         <div class="popup__container">
           <button class="popup__close-button popup__close-button_profile-info" type="button" aria-label="закрыть"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form popup__form_profile" name="userInfo" novalidate>
+          <form class="popup__form popup__form_profile" name="editProfile" novalidate>
             <label> 
-              <input id="profile-info-input-name" type="text" name="userNameInput" 
+              <input id="profile-info-input-name" type="text" name="name" id="nameInput"
                 class="popup__input popup__input_type_name" placeholder="Имя" minlength="2" maxlength="40" required>
               <span class="popup__input-error profile-info-input-name-error"></span>
             </label>
             <label>
-              <input id="profile-info-input-job" type="text"  name="userJobInput" 
+              <input id="profile-info-input-job" type="text"  name="info" id="jobInput"
                 class="popup__input popup__input_type_description" placeholder="О себе" minlength="2" maxlength="200" required>
                 <span class="popup__input-error profile-info-input-job-error"></span>
             </label>
@@ -55,14 +53,14 @@
         <div class="popup__container">
           <button class="popup__close-button popup__close-button_add-image" type="button" aria-label="закрыть"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form popup__form_add-image" name="addImage" novalidate>
+            <form class="popup__form popup__form_add-image" name="newPlace" novalidate>
               <label> 
-                <input id="add-image-title" type="text" name="imageInput" 
+                <input id="add-image-title" type="text" name="name" id="placeNameInput"
                 class="popup__input popup__input_type_image-title" placeholder="Название" minlength="2" maxlength="30" required>
                 <span class="popup__input-error add-image-title-error"></span>
               </label>
               <label>
-                <input id="add-image-link" type="url" name="linkInput" 
+                <input id="add-image-link" type="url" name="link" id="imageSourceInput"
                 class="popup__input popup__input_type_image-link" placeholder="Ссылка на картинку" required>
                 <span class="popup__input-error add-image-link-error"></span>
               </label>
@@ -93,6 +91,5 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
-      <script defer type="module" src="./scripts/index.js"></script>
     </body>
 </html>
