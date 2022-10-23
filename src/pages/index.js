@@ -47,8 +47,10 @@ const newSection = new Section(
 
 
 buttonEditProfile.addEventListener('click', () => {
-  inputNameProfile.value = userInfo.getUserInfo().name
-  inputJobProfile.value = userInfo.getUserInfo().info
+  const profileInfo = userInfo.getUserInfo();
+  
+  inputNameProfile.value = profileInfo.name
+  inputJobProfile.value = profileInfo.info
   popupEditProfile.open()
   formEditVProfileValidator.resetValidation();
 })

@@ -29,7 +29,11 @@
         </section> 
       </main>
 
-      <section class="popup popup_type_profile-info">
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+      </footer>
+
+      <div class="popup popup_type_profile-info">
         <div class="popup__container">
           <button class="popup__close-button popup__close-button_profile-info" type="button" aria-label="закрыть"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -47,9 +51,9 @@
             <button class="popup__save-button" type="submit">Сохранить</button>
           </form>
         </div>
-      </section>
+      </div>
       
-      <section class="popup popup_type_add-image">
+      <div class="popup popup_type_add-image">
         <div class="popup__container">
           <button class="popup__close-button popup__close-button_add-image" type="button" aria-label="закрыть"></button>
             <h2 class="popup__title">Новое место</h2>
@@ -67,15 +71,15 @@
               <button class="popup__save-button" type="submit">Создать</button>
             </form>
             </div>
-      </section>
+          </div>
 
-      <section class="popup popup_type_image">
+      <div class="popup popup_type_image">
         <figure class="popup__image-figure">
           <button class="popup__close-button popup__close-button_image" type="button" aria-label="закрыть"></button>
           <img class="popup__image-item" src=#s alt="">
           <figcaption class="popup__image-figcaption"></figcaption>
         </figure>
-      </section>
+      </div>
 
       <template class="template" id="template">
         <div class="element">
@@ -87,9 +91,5 @@
           </div>
         </div>
       </template>
-
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
-      </footer>
     </body>
 </html>
