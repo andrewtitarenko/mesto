@@ -1,0 +1,12 @@
+.profile__avatar-icon {
+    max-width: 120px;
+    max-height: 120px;
+    position: relative;
+
+  }
+  
+  @media screen and (min-width: 600px) {
+    .profile__avatar-icon {
+      justify-self: flex-start;
+    }
+  }
