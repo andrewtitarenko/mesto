@@ -87,7 +87,7 @@ function sumbitDeleteConfirmation(card) {
 }
 
 function submitElementRemoval(card) {
-  popupConfirmationDelete.open(() => sumbitDeleteConfirmation(card));
+  popupConfirmationDelete.open(card)
 }
 
 function handlePutLike(elementId, card) {
@@ -108,7 +108,7 @@ function deleteLike(elementId, card) {
 
 const submitAvatarForm = formValues =>
   api.changeAvatarIcon(formValues.link).then(res => {
-    profileAvatarIcon.src = res.avatar;
+    userInfo.setUserInfo(res);
     popupEditAvatar.close();
   })
     .catch(err => console.log(`Ошибка: ${err}`))
@@ -141,7 +141,7 @@ const imagePopup = new PopupWithImage(".popup_type_image");
 const validationProfileInfo = new FormValidator(config, formProfileInfo);
 const validationAddImage = new FormValidator(config, formAddImage);
 const validationAvatar = new FormValidator(config, formChangeAvatar);
-const popupConfirmationDelete = new PopupWithSubmit(".popup_type_delete-card");
+const popupConfirmationDelete = new PopupWithSubmit(".popup_type_delete-card", sumbitDeleteConfirmation);
 
 buttonEditProfile.addEventListener('click', submitProfileChange);
 buttonOpenAddImagePopup.addEventListener('click', submitAddCard);
